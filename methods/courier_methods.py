@@ -9,7 +9,7 @@ class CourierMethods:
         requests.post(
             Urls.CREATE_URL,
             data)
-        return {'email': data.get('email'), 'password': data.get('password')}
+        return {'email': data.get('email'), 'password': data.get('password'), 'name': data.get('name')}
 
     @staticmethod
     def login_courier_and_return_token(data):

@@ -15,6 +15,3 @@ class TestLoginCourier:
         data = FakerData.generate_full_data_account()
         response = requests.post(Urls.LOGIN_URL, data= {data.get('email'), data.get('password') })
         assert response.status_code == 401 and 'email or password are incorrect' in response.text
-
-
-
