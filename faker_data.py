@@ -17,4 +17,3 @@ class FakerData:
             "name": first_name
         }
         return data
-

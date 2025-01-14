@@ -23,5 +23,4 @@ class CourierMethods:
     def delete_courier(courier_token):
         response = requests.delete(
              Urls.DELETE_URL, headers={'Authorization': f'{courier_token}'})
-        print(response.text)
         assert response.status_code == 202 and 'User successfully removed' in response.text
