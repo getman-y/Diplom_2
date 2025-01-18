@@ -7,7 +7,7 @@ class UserMethods:
     def create_user_and_return_data():
         data = FakerData.generate_full_data_account()
         requests.post(
-            Urls.CREATE_URL,
+            Urls.CREATE_USER_URL,
             data)
         return {'email': data.get('email'), 'password': data.get('password'), 'name': data.get('name')}
 
