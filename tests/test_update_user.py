@@ -1,12 +1,14 @@
+import allure
 import requests
 
 from data import Urls
 from faker_data import FakerData
 from methods.courier_methods import UserMethods
 
-
+@allure.suite('Изменение данных пользователя')
 class TestUpdateUser:
 
+    @allure.title('Тест на изменение данных авторизованного пользователя')
     def test_update_user_success(self):
         user = UserMethods()
         data = FakerData.generate_full_data_account()
@@ -20,6 +22,7 @@ class TestUpdateUser:
         assert (response.status_code == 200 and data.get('name') in response.text
                 and data.get('email') in response.text)
 
+    @allure.title('Тест на изменение данных неавторизованного пользователя')
     def test_update_unauth_user_error(self):
         data = FakerData.generate_full_data_account()
         response = requests.patch(
